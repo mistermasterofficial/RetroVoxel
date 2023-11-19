@@ -1,5 +1,8 @@
 import time
 
+def anim_loop(duration):
+	return time.time()%duration/duration
+
 class Anim():
 	def __init__(self, func, duration, is_loop):
 		self.func = func
@@ -41,4 +44,4 @@ class Anim():
 		self.is_start = False
 	
 	def is_stop(self):
-		return self.end_time <= time.time() and not self.is_loop or not self.is_start
+		return (self.end_time <= time.time() and not self.is_loop) or not self.is_start

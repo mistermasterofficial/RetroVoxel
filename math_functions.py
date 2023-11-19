@@ -18,5 +18,29 @@ def rotate_vec2(vec, angle):
 
 clamp = lambda value, _min, _max: max(_min, min(_max, value))
 
-def angle_to_vec2(vec1, vec2):
+def vec2_to_angle(vec1, vec2):
     return math.atan2(vec1[1] - vec2[1], vec1[0] - vec2[0])
+
+def rotate_vec3_x(vec, angle):
+	angle = angle/180*math.pi
+	return vec3(
+		vec[0],
+		math.cos(angle)*vec[1]+math.sin(angle)*vec[2]
+		-math.sin(angle)*vec[1]+math.cos(angle)*vec[2]
+	)
+
+def rotate_vec3_y(vec, angle):
+	angle = angle/180*math.pi
+	return vec3(
+		math.cos(angle)*vec[0]-math.sin(angle)*vec[2],
+		vec[1],
+		math.sin(angle)*vec[0]+math.cos(angle)*vec[2]
+	)
+
+def rotate_vec3_z(vec, angle):
+	angle = angle/180*math.pi
+	return vec3(
+		math.cos(angle)*vec[0]+math.sin(angle)*vec[1],
+		-math.sin(angle)*vec[0]+math.cos(angle)*vec[1],
+		vec[2]
+	)
